@@ -280,7 +280,7 @@ class Donate extends Component {
             </DefinitionListWrapper>
             <DefinitionListWrapper>
               <DefinitionListTitle>{donateList2Head}</DefinitionListTitle>
-              <DefinitionListDescription>{donateList2Text}</DefinitionListDescription>
+              <DefinitionListDescription selectable>{donateList2Text}</DefinitionListDescription>
             </DefinitionListWrapper>
             <DefinitionListWrapper style={{ paddingBottom: 18 }}>
               <DefinitionListTitle>{donateList3Head}</DefinitionListTitle>
