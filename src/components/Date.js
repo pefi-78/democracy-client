@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import styled from 'styled-components/native';
 import PropTypes from 'prop-types';
 import m from 'moment';
-import _ from 'lodash';
 
 const DateText = styled.Text`
 padding-top: 8;
@@ -55,11 +54,9 @@ class DateTime extends Component {
       }
 
       const hours = Math.floor(m.duration(m(date).diff(m())).asMinutes() / 60);
-      const minutes = _.padStart(
-        `${Math.floor(((m.duration(m(date).diff(m())).asMinutes() / 60) % 1) * 60)}`,
-        2,
-        '0',
-      );
+      const minutes = `${Math.floor(
+        ((m.duration(m(date).diff(m())).asMinutes() / 60) % 1) * 60,
+      )}`.padStart(2, '0');
       return `${hours}:${minutes}`;
     }
     return null;
