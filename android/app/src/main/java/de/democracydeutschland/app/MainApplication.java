@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 
 import com.facebook.react.ReactApplication;
+import io.realm.react.RealmReactPackage;
 import com.sha256lib.Sha256Package;
 import com.RNFetchBlob.RNFetchBlobPackage;
 import org.wonday.pdf.RCTPdfView;
@@ -77,6 +78,7 @@ public class MainApplication extends NavigationApplication implements INotificat
     	// No need to add RnnPackage and MainReactPackage
       	return Arrays.<ReactPackage>asList(
       		//new MainReactPackage(),
+            new RealmReactPackage(),
             new RNFetchBlobPackage(),
       		new RNNotificationsPackage(MainApplication.this),
             new RCTPdfView(),

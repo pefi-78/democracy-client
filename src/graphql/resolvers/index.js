@@ -6,6 +6,9 @@ import SEARCH_HISTORY from '../queries/local/searchHistory';
 import VotesLocal from '../../services/VotesLocal';
 import ViewedProcedures from '../../services/ViewedProcedures';
 
+// Realm
+import VotesService, { Model as VoteModel } from '../../realm/Votes';
+
 export const defaults = {
   currentScreen: 'democracy.VoteList',
   votesLocal: [],
@@ -38,6 +41,12 @@ export const resolvers = {
     },
     votesLocal: async (_, { procedureId, selection }) => {
       await VotesLocal.setVoteLocal({ procedureId, selection });
+      const vote = new VoteModel({
+        procedureId,
+        decision: selection,
+      });
+      VotesService.save(vote);
+      console.log('VotesService', VotesService.findAll());
       return null;
     },
     currentScreen: (_, { currentScreen }, { cache }) => {
