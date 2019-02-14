@@ -140,7 +140,7 @@ class List extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.list !== this.props.list) {
-      nextProps.data.procedures = false; // eslint-disable-line
+      nextProps.data.procedures = false;
     }
 
     if (

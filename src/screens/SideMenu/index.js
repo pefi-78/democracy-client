@@ -1,4 +1,3 @@
-/* eslint-disable no-nested-ternary */
 import React from 'react';
 import { Platform, StatusBar } from 'react-native';
 import styled from 'styled-components/native';

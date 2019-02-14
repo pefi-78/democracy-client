@@ -20,7 +20,8 @@ import typeDefs from './schemas';
 
 import UPDATE_NETWORK_STATUS from '../graphql/mutations/updateNetworkStatus';
 
-let client; // eslint-disable-line
+// eslint-disable-next-line import/no-mutable-exports
+let client;
 
 const cache = new InMemoryCache({
   dataIdFromObject: o => {

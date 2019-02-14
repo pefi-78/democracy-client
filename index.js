@@ -161,5 +161,5 @@ class App {
 
 (async () => {
   await persistor.restore();
-  const app = new App(); // eslint-disable-line
+  new App();
 })();

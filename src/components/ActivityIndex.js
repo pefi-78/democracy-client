@@ -91,7 +91,7 @@ class ActivityIndex extends Component {
 }
 
 ActivityIndex.propTypes = {
-  procedureId: PropTypes.string.isRequired, // eslint-disable-line
+  procedureId: PropTypes.string.isRequired,
   increaseActivity: PropTypes.func.isRequired,
   activityIndex: PropTypes.number,
   active: PropTypes.bool,
