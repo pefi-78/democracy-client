@@ -13,9 +13,9 @@ import ListSectionHeader from '../../components/ListSectionHeader';
 
 import client from '../../graphql/client';
 
-import searchProcedures from '../../graphql/queries/searchProcedures';
+import SEARCH_PROCEDURES from '../../graphql/queries/searchProcedures';
 import mostSearched from '../../graphql/queries/mostSearched';
-import searchTerm from '../../graphql/queries/local/searchTerm';
+import SEARCH_TERM from '../../graphql/queries/local/searchTerm';
 import SEARCH_HISTORY from '../../graphql/queries/local/searchHistory';
 import finishSearch from '../../graphql/mutations/finishSearch';
 import changeSearchTerm from '../../graphql/mutations/local/changeSearchTerm';
@@ -112,7 +112,7 @@ class SearchScreen extends Component {
 
     if (!this.observableSearchQuery) {
       this.observableSearchQuery = await watchQuery({
-        query: searchProcedures,
+        query: SEARCH_PROCEDURES,
         variables: { term },
         fetchPolicy: 'no-cache',
       });
@@ -272,7 +272,7 @@ export default withApollo(
         }),
       }),
 
-      graphql(searchTerm, {
+      graphql(SEARCH_TERM, {
         props: ({ data: { searchTerm: searchTermData } }) =>
           searchTermData ? { searchTerm: searchTermData.term } : { searchTerm: '' },
       }),

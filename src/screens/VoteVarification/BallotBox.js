@@ -5,8 +5,10 @@ import styled from 'styled-components/native';
 import { graphql, compose } from 'react-apollo';
 import { Navigator, Navigation } from 'react-native-navigation';
 
+// Components
 import VoteButton from '../../components/VoteButton';
 
+// GraphQl
 import VOTE from '../../graphql/mutations/vote';
 import VOTE_LOCAL from '../../graphql/mutations/local/vote';
 import VOTED from '../../graphql/queries/voted';
@@ -15,6 +17,7 @@ import VOTE_SELECTION_LOCAL from '../../graphql/queries/local/voteSelection';
 import F_ACTIVITY_INDEX from '../../graphql/fragments/ProcedureActivityIndex';
 import F_VOTED from '../../graphql/fragments/ProcedureVoted';
 import VOTES_SELECTION_LOCAL from '../../graphql/queries/local/votesSelection';
+import SEARCH_PROCEDURES from '../../graphql/queries/searchProcedures';
 
 const Wrapper = styled.View`
   flex: 1;
@@ -264,6 +267,9 @@ export default compose(
               {
                 query: VOTES,
                 variables: { procedure: procedureObjId, constituencies },
+              },
+              {
+                query: SEARCH_PROCEDURES,
               },
             ],
           });
