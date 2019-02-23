@@ -107,30 +107,39 @@ class WahlOMeter extends PureComponent {
 
   render() {
     const { selectedIndex, width, routes } = this.state;
-    let bundestagScreen = (
-      <View key="bundestag" style={{ flex: 1, width: width }}>
-        <Bundestag
-          onProcedureListItemClick={this.onProcedureListItemClick}
-          navigator={this.props.navigator}
-        />
-      </View>
-    );
-    let fraktionenScreen = (
-      <View key="fraktionen" style={{ flex: 1, width: width }}>
-        <Fraktionen
-          onProcedureListItemClick={this.onProcedureListItemClick}
-          navigator={this.props.navigator}
-        />
-      </View>
-    );
-    let wahlkreisScreen = (
-      <View key="wahlkreis" style={{ flex: 1, width: width }}>
-        <Wahlkreis
-          onProcedureListItemClick={this.onProcedureListItemClick}
-          navigator={this.props.navigator}
-        />
-      </View>
-    );
+    let bundestagScreen =
+      this.state.selectedIndex === 0 ? (
+        <View key="bundestag" style={{ flex: 1, width: width }}>
+          <Bundestag
+            onProcedureListItemClick={this.onProcedureListItemClick}
+            navigator={this.props.navigator}
+          />
+        </View>
+      ) : (
+        <View key="bundestag-empty" style={{ flex: 1, width: width }} />
+      );
+    let fraktionenScreen =
+      this.state.selectedIndex === 1 ? (
+        <View key="fraktionen" style={{ flex: 1, width: width }}>
+          <Fraktionen
+            onProcedureListItemClick={this.onProcedureListItemClick}
+            navigator={this.props.navigator}
+          />
+        </View>
+      ) : (
+        <View key="fraktionen-empty" style={{ flex: 1, width: width }} />
+      );
+    let wahlkreisScreen =
+      this.state.selectedIndex === 2 ? (
+        <View key="wahlkreis" style={{ flex: 1, width: width }}>
+          <Wahlkreis
+            onProcedureListItemClick={this.onProcedureListItemClick}
+            navigator={this.props.navigator}
+          />
+        </View>
+      ) : (
+        <View key="wahlkreis-empty" style={{ flex: 1, width: width }} />
+      );
     return (
       <Wrapper onLayout={this.onLayout}>
         {Platform.OS === 'ios' && (
