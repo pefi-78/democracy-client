@@ -4,10 +4,13 @@ import { graphql, Query } from 'react-apollo';
 import { ActivityIndicator } from 'react-native';
 import styled from 'styled-components/native';
 import ContactBox from '../../../components/ContactBox';
+import { ImageLoader } from 'react-native-image-fallback';
+
 // Components
 import PartyComponent from '../../../components/Parties';
 import ChartLegend from '../../../components/Charts/ChartLegend';
 import Chart from './Chart';
+
 // GraphQL
 import GET_DEPUTY_PROFIL from '../../../graphql/queries/getDeputyProfil';
 import GET_CONSTITUENCY from '../../../graphql/queries/local/constituency';
@@ -32,7 +35,7 @@ const MemberImageWrapper = styled.View`
   padding-bottom: 8;
 `;
 
-const MemberImage = styled.Image.attrs({
+const MemberImage = styled(ImageLoader).attrs({
   resizeMode: 'contain',
 })`
   flex: 1;
@@ -152,7 +155,10 @@ class MemberProfil extends PureComponent {
               return (
                 <>
                   <MemberImageWrapper>
-                    <MemberImage source={{ uri: imgURL }} />
+                    <MemberImage
+                      source={imgURL}
+                      fallback={[require('../../../../assets/images/deputy-fallback.png')]}
+                    />
                     <Party party={party} />
                   </MemberImageWrapper>
                   <Text>{name}</Text>

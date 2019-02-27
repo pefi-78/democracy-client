@@ -5,6 +5,7 @@ import styled from 'styled-components/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Query } from 'react-apollo';
 import { Navigator } from 'react-native-navigation';
+import { ImageLoader } from 'react-native-image-fallback';
 
 // Components
 import PartyComponent from '../../../../../components/Parties';
@@ -46,7 +47,7 @@ const MemberImageWrapper = styled.TouchableOpacity`
   padding-bottom: 8;
 `;
 
-const MemberImage = styled.Image.attrs({
+const MemberImage = styled(ImageLoader).attrs({
   resizeMode: 'contain',
 })`
   flex: 1;
@@ -138,7 +139,10 @@ const DeputyVoteData = ({ procedureId, navigator }) => (
                     })
                   }
                 >
-                  <MemberImage source={{ uri: imgURL }} />
+                  <MemberImage
+                    source={imgURL}
+                    fallback={[require('../../../../../../assets/images/deputy-fallback.png')]}
+                  />
                   <Party party={party} />
                 </MemberImageWrapper>
                 <DeputyDetailsWrapper>

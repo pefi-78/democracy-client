@@ -8172,6 +8172,13 @@ react-native-device-info@0.21.2:
   resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-0.21.2.tgz#82209bf529f5cae7eab1d6512b1cfb03e29ced30"
   integrity sha512-mzOPNTpZIUaaTsxEFJ0fo7C8uYNZCWHfZg+s7gV7i4dLHPdPM2HVKZpXa2W/NpP+CFoXT0aC6S4Oe8ka5LmWzQ==
 
+react-native-image-fallback@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/react-native-image-fallback/-/react-native-image-fallback-0.0.6.tgz#c2cc8790663c5c40d52ca4515ebe8254d69c7ed1"
+  integrity sha512-6AhtGRJXYeSDuNbPsxo/K3IHN2HI34Y4caP5teLTumuPAdemWhxP4Z2R6CWqGKD7gQgeSG34MFwFYzV5HRzbyQ==
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-iphone-x-helper@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.0.3.tgz#7a2f1e0574e899a0f1d426e6167fd98990083214"
