@@ -5,6 +5,7 @@ import { Platform } from 'react-native';
 import { Navigator } from 'react-native-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Svg, { Rect, Text as SvgText, G } from 'react-native-svg';
+import { ImageLoader } from 'react-native-image-fallback';
 
 // Components
 import ChartLegend from '../../../components/Charts/ChartLegend';
@@ -26,7 +27,7 @@ const MemberImageWrapper = styled.TouchableOpacity`
   padding-bottom: 8;
 `;
 
-const MemberImage = styled.Image.attrs({
+const MemberImage = styled(ImageLoader).attrs({
   resizeMode: 'contain',
 })`
   flex: 1;
@@ -162,7 +163,10 @@ const Wahlkreis = ({ onProcedureListItemClick, navigator }) => {
                     })
                   }
                 >
-                  <MemberImage source={{ uri: imgURL }} />
+                  <MemberImage
+                    source={imgURL}
+                    fallback={[require('../../../../assets/images/deputy-fallback.png')]}
+                  />
                   <Party party={party} />
                 </MemberImageWrapper>
                 <DeputyDetailsWrapper>
